@@ -3,7 +3,7 @@ version: '3.7'
 services:
   db:
     image: postgres:13-alpine
-    container_name: database
+    container_name: simulacro
     restart: always
     environment:
       POSTGRES_DB: postgres
