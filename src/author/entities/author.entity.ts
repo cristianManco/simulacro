@@ -1,4 +1,13 @@
-import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, DeleteDateColumn, ManyToMany, JoinTable } from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
+  DeleteDateColumn,
+  ManyToMany,
+  JoinTable,
+} from 'typeorm';
 import { Book } from 'src/books/entities/book.entity';
 
 @Entity()
@@ -30,7 +39,7 @@ export class Author {
   @DeleteDateColumn()
   deletedAt?: Date;
 
-  @ManyToMany(() => Book, book => book.autores)
+  @ManyToMany(() => Book, (book) => book.autores)
   @JoinTable()
   books: Book[];
 }

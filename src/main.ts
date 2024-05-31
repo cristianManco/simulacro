@@ -11,9 +11,7 @@ async function bootstrap() {
   app.use(cors());
   const config = new DocumentBuilder()
     .setTitle('Digital Bookstore')
-    .setDescription(
-      'The Digital Bookstore API ',
-    )
+    .setDescription('The Digital Bookstore API ')
     .setVersion('1.0')
     .addBearerAuth() // Adds support for Bearer authentication
     .build();
@@ -23,8 +21,8 @@ async function bootstrap() {
   app.setGlobalPrefix('/api');
   await app.listen(port);
   console.log(`The application is running in: http://localhost:${port}/api\n`);
-  console.log(`the swagger app is running in: http://localhost:${port}/api/docs`);
-  
+  console.log(
+    `the swagger app is running in: http://localhost:${port}/api/docs`,
+  );
 }
 bootstrap();
-

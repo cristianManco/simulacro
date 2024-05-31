@@ -12,10 +12,11 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       password: config().database.password,
       database: config().database.db,
       autoLoadEntities: true,
-      synchronize: true
+      // entities: [__dirname + '/**/*.entity{.ts,.js}'],
+      synchronize: true,
     }),
   ],
-  controllers:[],
-  providers:[],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}

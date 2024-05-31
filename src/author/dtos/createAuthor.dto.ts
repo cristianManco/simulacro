@@ -10,7 +10,10 @@ export class CreateAuthorDto {
   @IsString()
   apellido: string;
 
-  @ApiProperty({ description: 'Fecha de nacimiento del autor', required: false })
+  @ApiProperty({
+    description: 'Fecha de nacimiento del autor',
+    required: false,
+  })
   @IsOptional()
   @IsDateString()
   fecha_nacimiento?: Date;
