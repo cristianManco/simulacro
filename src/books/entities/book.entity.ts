@@ -1,6 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, DeleteDateColumn, ManyToMany, OneToMany } from 'typeorm';
 import { Author } from '../../author/entities/author.entity';
-import { Sale } from '../../sales/sale/sale.entity';
+import { Sale } from '../../sales/entities/sale.entity';
 
 @Entity()
 export class Book {
