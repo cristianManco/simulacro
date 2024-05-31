@@ -2,25 +2,6 @@
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
 ## Description
 
@@ -58,16 +39,82 @@ $ yarn run test:e2e
 $ yarn run test:cov
 ```
 
-## Support
+# Digital Library API
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+## Description
+This API provides functionalities for managing a digital library, allowing CRUD operations on books, authors, and sales. It also includes capabilities for pagination, filtering, and sorting, as well as data validations and appropriate response codes.
 
-## Stay in touch
+## Installation and Setup
+1. Clone this repository to your local machine.
+2. Install dependencies using the command `npm install`.
+3. Configure your PostgreSQL or MySQL database and update the configuration in the `config.ts` file.
+4. Run database migrations with the command `npm run migration:run`.
+5. Start the application using the command `npm run start`.
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+## Usage
+### Available Endpoints
+- `GET /books`: Get all available books.
+- `GET /books/:id`: Get a specific book by its ID.
+- `POST /books`: Create a new book.
+- `PUT /books/:id`: Update an existing book.
+- `DELETE /books/:id`: Delete a book by its ID.
+- `GET /authors`: Get all available authors.
+- `GET /authors/:id`: Get a specific author by its ID.
+- `POST /authors`: Create a new author.
+- `PUT /authors/:id`: Update an existing author.
+- `DELETE /authors/:id`: Delete an author by its ID.
+- `GET /sales`: Get all available sales.
+- `GET /sales/:id`: Get a specific sale by its ID.
+- `POST /sales`: Register a new sale.
+- `PUT /sales/:id`: Update an existing sale.
+- `DELETE /sales/:id`: Delete a sale by its ID.
+
+### API Documentation
+The API documentation is available in Swagger. After running the application, visit `http://localhost:3000/api/docs` in your browser to access the documentation.
+
+## Project Structure
+```
+src/
+|-- author/
+|   |-- dto/                  # DTOs (Data Transfer Objects) for author operations
+|   |-- entities/             # Author entity definition
+|   |-- author.controller.ts  # Controller for author operations
+|   |-- author.module.ts      # Module for author-related functionalities
+|   |-- author.service.ts     # Service for author operations
+|
+|-- book/
+|   |-- dto/                  # DTOs for book operations
+|   |-- entities/             # Book entity definition
+|   |-- book.controller.ts    # Controller for book operations
+|   |-- book.module.ts        # Module for book-related functionalities
+|   |-- book.service.ts       # Service for book operations
+|
+|-- sales/
+|   |-- dto/                  # DTOs for sales operations
+|   |-- entities/             # Sale entity definition
+|   |-- sale.controller.ts    # Controller for sales operations
+|   |-- sale.module.ts        # Module for sale-related functionalities
+|   |-- sale.service.ts       # Service for sale operations
+|
+|-- app.module.ts             # Main application module
+|-- main.ts                   # Application entry point
+|-- config.ts                 # Configuration file for database and other settings
+|-- ...                       # Other files and folders
+```
+
+## Contribution
+To contribute to this project, follow these steps:
+1. Fork this repository.
+2. Create a new branch with the prefix `feature/` followed by your feature name.
+3. Make your changes and tests.
+4. Make a pull request to the `develop` branch of this repository.
+
+- Author - [Cristian Manco](https://github.com/cristianManco)
+
 
 ## License
+This project is licensed under the MIT License. See the LICENSE file for more details.
 
-Nest is [MIT licensed](LICENSE).
+---
+
+For any questions or issues, contact Stiven Loaiza at camilomanco2005@gmail.com Thank you for using our API!

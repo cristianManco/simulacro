@@ -33,4 +33,5 @@ export class Sale {
 
   @ManyToOne(() => Book, (book) => book.ventas)
   libro: Book;
+    precio: number;
 }

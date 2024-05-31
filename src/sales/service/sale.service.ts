@@ -15,8 +15,6 @@ export class SaleService {
   constructor(
     @InjectRepository(Sale)
     private readonly saleRepository: Repository<Sale>,
-    @InjectRepository(Book)
-    private readonly bookRepository: Repository<Book>,
   ) {}
 
   async create(createSaleDto: CreateSaleDto): Promise<Sale> {
@@ -27,7 +25,7 @@ export class SaleService {
       );
     }
 
-    const book = await this.bookRepository.findOne({
+    const book = await this.saleRepository.findOne({
       where: { id: createSaleDto.libro },
     });
     if (!book) {
@@ -86,7 +84,7 @@ export class SaleService {
 
   async update(id: number, updateSaleDto: UpdateSaleDto): Promise<Sale> {
     if (updateSaleDto.libro) {
-      const book = await this.bookRepository.findOne({
+      const book = await this.saleRepository.findOne({
         where: { id: updateSaleDto.libro },
       });
       if (!book) {

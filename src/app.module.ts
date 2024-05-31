@@ -1,6 +1,9 @@
 import { Module } from '@nestjs/common';
 import config from './global/config/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { BookModule } from './books/module/book.module';
+import { AuthorModule } from './author/module/author.module';
+import { SaleModule } from './sales/module/sale.module';
 
 @Module({
   imports: [
@@ -12,9 +15,11 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       password: config().database.password,
       database: config().database.db,
       autoLoadEntities: true,
-      // entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
     }),
+    AuthorModule,
+    BookModule,
+    SaleModule,
   ],
   controllers: [],
   providers: [],
