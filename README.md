@@ -10,8 +10,28 @@
 ## Installation
 
 ```bash
+$ git clone https://github.com/cristianManco/nestjs-typeorm-example.git
+$ cd nestjs-typeorm-example
+$ npm install
 $ yarn install
 ```
+
+## environment variables need to be
+
+#### add file .env
+```bash
+# enviroment variables
+
+DATABASE_TYPE: This specifies the type of database you are using. It can be postgres, mongo, or mysql.
+DATABASE_HOST: This is the hostname or IP address of your database server.
+DATABASE_PORT: This is the port number on which your database server is listening.
+DATABASE_USERNAME: This is the username that your application will use to authenticate with the database.
+DATABASE_PASSWORD: This is the password that your application will use to authenticate with the database.
+DATABASE_DB: This is the name of the database that your application will connect to.
+PORT: This is the port number on which your application will run. In this case, it’s set to 3000.
+
+```
+
 
 ## Running the app
 
@@ -76,36 +96,39 @@ The API documentation is available in Swagger. After running the application, vi
 ```
 src/
 |-- author/
-|   |-- dto/                  # DTOs (Data Transfer Objects) for author operations
+|   |--config.ts              # Configuration file for database and other settings
+|   |--Guard/                 # guard configuration for sales
+|
+|-- author/
 |   |-- entities/             # Author entity definition
-|   |-- author.controller.ts  # Controller for author operations
-|   |-- author.module.ts      # Module for author-related functionalities
-|   |-- author.service.ts     # Service for author operations
+|   |-- dto/                  # DTOs (Data Transfer Objects) for author operations
+|   |-- controller/           # Controller for author operations
+|   |-- module/               # Module for author-related functionalities
+|   |--  service              # Service for author operations
 |
 |-- book/
 |   |-- dto/                  # DTOs for book operations
 |   |-- entities/             # Book entity definition
-|   |-- book.controller.ts    # Controller for book operations
-|   |-- book.module.ts        # Module for book-related functionalities
-|   |-- book.service.ts       # Service for book operations
+|   |-- controller/           # Controller for book operations
+|   |-- module/               # Module for book-related functionalities
+|   |-- service               # Service for book operations
 |
 |-- sales/
 |   |-- dto/                  # DTOs for sales operations
 |   |-- entities/             # Sale entity definition
-|   |-- sale.controller.ts    # Controller for sales operations
-|   |-- sale.module.ts        # Module for sale-related functionalities
-|   |-- sale.service.ts       # Service for sale operations
+|   |-- controller/           # Controller for sales operations
+|   |-- module/               # Module for sale-related functionalities
+|   |--  service              # Service for sale operations
 |
 |-- app.module.ts             # Main application module
 |-- main.ts                   # Application entry point
-|-- config.ts                 # Configuration file for database and other settings
 |-- ...                       # Other files and folders
 ```
 
 ## Contribution
 To contribute to this project, follow these steps:
 1. Fork this repository.
-2. Create a new branch with the prefix `feature/` followed by your feature name.
+2. Create a new branch with the prefix `feature/`or  `feat/` followed by your feature name.
 3. Make your changes and tests.
 4. Make a pull request to the `develop` branch of this repository.
 

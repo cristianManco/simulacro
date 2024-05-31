@@ -9,7 +9,7 @@ import { ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
 export class BookController {
   constructor(private readonly bookService: BookService) {}
 
-  @Post('newBook')
+  @Post('new')
   @HttpCode(HttpStatus.CREATED)
   @ApiOperation({ summary: 'Create a book' })
   @ApiResponse({ status: 201, description: 'The book has been successfully created.' })
