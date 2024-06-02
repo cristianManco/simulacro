@@ -11,12 +11,10 @@ export class BookService {
   constructor(
     @InjectRepository(Book)
     private readonly bookRepository: Repository<Book>,
-    @InjectRepository(Author)
-    private readonly authorRepository: Repository<Author>,
   ) {}
 
   async create(createBookDto: CreateBookDto): Promise<Book> {
-    const authors = await this.authorRepository.findByIds(
+    const authors = await this.bookRepository.findByIds(
       createBookDto.autores,
     );
     const book = this.bookRepository.create({
@@ -47,7 +45,7 @@ export class BookService {
   }
 
   async update(id: number, updateBookDto: UpdateBookDto): Promise<Book> {
-    const authors = await this.authorRepository.findByIds(
+    const authors = await this.bookRepository.findByIds(
       updateBookDto.autores,
     );
     await this.bookRepository.update(id, {
