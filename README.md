@@ -73,21 +73,21 @@ This API provides functionalities for managing a digital library, allowing CRUD 
 
 ## Usage
 ### Available Endpoints
-- `GET /books`: Get all available books.
-- `GET /books/:id`: Get a specific book by its ID.
-- `POST /books`: Create a new book.
-- `PUT /books/:id`: Update an existing book.
-- `DELETE /books/:id`: Delete a book by its ID.
-- `GET /authors`: Get all available authors.
-- `GET /authors/:id`: Get a specific author by its ID.
-- `POST /authors`: Create a new author.
-- `PUT /authors/:id`: Update an existing author.
-- `DELETE /authors/:id`: Delete an author by its ID.
-- `GET /sales`: Get all available sales.
-- `GET /sales/:id`: Get a specific sale by its ID.
-- `POST /sales`: Register a new sale.
-- `PUT /sales/:id`: Update an existing sale.
-- `DELETE /sales/:id`: Delete a sale by its ID.
+- `GET /api/books/all`: Get all available books.
+- `GET /api/books/:id`: Get a specific book by its ID.
+- `POST /api/books/new`: Create a new book.
+- `PUT /api/books/:id`: Update an existing book.
+- `DELETE /api/books/:id`: Delete a book by its ID.
+- `GET /api/authors/all`: Get all available authors.
+- `GET /api/authors/:id`: Get a specific author by its ID.
+- `POST /api/authors/new`: Create a new author.
+- `PUT /api/authors/:id`: Update an existing author.
+- `DELETE /api/authors/:id`: Delete an author by its ID.
+- `GET /api/sales/all`: Get all available sales.
+- `GET /api/sales/:id`: Get a specific sale by its ID.
+- `POST /api/sales/new`: Register a new sale.
+- `PUT /api/sales/:id`: Update an existing sale.
+- `DELETE /api/sales/:id`: Delete a sale by its ID.
 
 ### API Documentation
 The API documentation is available in Swagger. After running the application, visit `http://localhost:3000/api/docs` in your browser to access the documentation.
@@ -140,4 +140,4 @@ This project is licensed under the MIT License. See the LICENSE file for more de
 
 ---
 
-For any questions or issues, contact Stiven Loaiza at camilomanco2005@gmail.com Thank you for using our API!
+For any questions or issues, Cristian Manco at camilomanco2005@gmail.com Thank you for using our API!
