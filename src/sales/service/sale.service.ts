@@ -15,6 +15,8 @@ export class SaleService {
   constructor(
     @InjectRepository(Sale)
     private readonly saleRepository: Repository<Sale>,
+    @InjectRepository(Book)
+    private readonly bookRepository: Repository<Book>,
   ) {}
 
   async create(createSaleDto: CreateSaleDto): Promise<Sale> {
@@ -25,7 +27,7 @@ export class SaleService {
       );
     }
 
-    const book = await this.saleRepository.findOne({
+    const book = await this.bookRepository.findOne({
       where: { id: createSaleDto.libro },
     });
     if (!book) {
@@ -39,8 +41,10 @@ export class SaleService {
       libro: book,
       total: book.precio * createSaleDto.cantidad,
     });
+
     return this.saleRepository.save(sale);
   }
+
 
   async findAll(page: number, limit: number): Promise<Sale[]> {
     const [sales, total] = await this.saleRepository.findAndCount({
@@ -48,6 +52,7 @@ export class SaleService {
       take: limit,
       skip: (page - 1) * limit,
     });
+    
     return sales;
   }
 

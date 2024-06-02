@@ -1,11 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import {
-  IsString,
-  IsOptional,
-  IsDateString,
-  IsNumber,
-  IsArray,
-} from 'class-validator';
+import { IsArray, IsDateString, IsNumber, IsOptional, IsString, ArrayNotEmpty } from 'class-validator';
 
 export class CreateBookDto {
   @ApiProperty({ description: 'Título del libro' })
@@ -27,5 +21,6 @@ export class CreateBookDto {
 
   @ApiProperty({ description: 'IDs de los autores del libro', type: [Number] })
   @IsArray()
+  @ArrayNotEmpty()
   autores: number[];
 }

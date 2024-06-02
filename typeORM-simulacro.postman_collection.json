@@ -1,0 +1,114 @@
+{
+	"info": {
+		"_postman_id": "d419550f-2f84-46cb-8c5e-68b1ee8024de",
+		"name": "typeORM-simulacro",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "33426471",
+		"_collection_link": "https://red-spaceship-281339.postman.co/workspace/My-Workspace~79224d77-8883-4e2a-8025-22084b44a9ac/collection/33426471-d419550f-2f84-46cb-8c5e-68b1ee8024de?action=share&source=collection_link&creator=33426471"
+	},
+	"item": [
+		{
+			"name": "all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/books/all?page=1&limit=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"books",
+						"all"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "new author",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nombre\": \"alfonso maestre\",\r\n  \"apellido\": \"torres diaz\",\r\n  \"fecha_nacimiento\": \"1899-08-24\",\r\n  \"nacionalidad\": \"europeo\",\r\n  \"biografia\": \"alfonso maestre Gaitan torres diaz fue un erudito escritor europeo, considerado uno de los más destacados de la literatura del siglo XX.\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/api/authors/new"
+			},
+			"response": []
+		},
+		{
+			"name": "new book",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"titulo\": \"Cien años de soledad\",\r\n  \"descripcion\": \"Una obra maestra de la literatura latinoamericana.\",\r\n  \"fecha_publicacion\": \"1967-05-30\",\r\n  \"precio\": 19.99,\r\n  \"autores\": [1, 2]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/api/books/new"
+			},
+			"response": []
+		},
+		{
+			"name": "new sales",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"fecha\": \"2024-06-01T00:00:00Z\",\r\n  \"cliente\": \"ana Pérez\",\r\n  \"cantidad\": 4,\r\n  \"total\": 39.98,\r\n  \"libro\": 3\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/api/sales/new"
+			},
+			"response": []
+		},
+		{
+			"name": "all author",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3000/api/authors/all"
+			},
+			"response": []
+		},
+		{
+			"name": "all sales",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3000/api/sales/all"
+			},
+			"response": []
+		}
+	]
+}

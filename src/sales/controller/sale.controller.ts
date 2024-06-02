@@ -2,16 +2,16 @@ import { Controller, Get, Post, Body, Put, Param, Delete, HttpCode, HttpStatus, 
 import { SaleService } from '../service/sale.service';
 import { CreateSaleDto } from '../dtos/createSale.dto';
 import { UpdateSaleDto } from '../dtos/updateSale.dto';
-// import { SalesHourGuard } from './guards/sales-hour.guard';
 import { ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
+import { SaleGuard } from 'src/global/sale-guard/sale-guard.guard';
 
 @ApiTags('sales')
 @Controller('sales')
 export class SaleController {
   constructor(private readonly saleService: SaleService) {}
 
-  @Post()
-//   @UseGuards(SalesHourGuard)
+  @Post('new')
+  @UseGuards(SaleGuard)
   @HttpCode(HttpStatus.CREATED)
   @ApiOperation({ summary: 'Create a sale' })
   @ApiResponse({ status: 201, description: 'The sale has been successfully created.' })
@@ -21,7 +21,7 @@ export class SaleController {
     return this.saleService.create(createSaleDto);
   }
 
-  @Get()
+  @Get('all')
   @HttpCode(HttpStatus.OK)
   @ApiOperation({ summary: 'Get all sales' })
   @ApiResponse({ status: 200, description: 'Return all sales.' })

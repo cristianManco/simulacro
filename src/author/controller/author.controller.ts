@@ -9,7 +9,7 @@ import { ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
 export class AuthorController {
   constructor(private readonly authorService: AuthorService) {}
 
-  @Post()
+  @Post('new')
   @HttpCode(HttpStatus.CREATED)
   @ApiOperation({ summary: 'Create an author' })
   @ApiResponse({ status: 201, description: 'The author has been successfully created.' })
@@ -18,7 +18,7 @@ export class AuthorController {
     return this.authorService.create(createAuthorDto);
   }
 
-  @Get()
+  @Get('all')
   @HttpCode(HttpStatus.OK)
   @ApiOperation({ summary: 'Get all authors' })
   @ApiResponse({ status: 200, description: 'Return all authors.' })

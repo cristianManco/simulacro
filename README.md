@@ -10,8 +10,28 @@
 ## Installation
 
 ```bash
+$ git clone https://github.com/cristianManco/nestjs-typeorm-example.git
+$ cd nestjs-typeorm-example
+$ npm install
 $ yarn install
 ```
+
+## environment variables need to be
+
+#### add file .env
+```bash
+# enviroment variables
+
+DATABASE_TYPE: This specifies the type of database you are using. It can be postgres, mongo, or mysql.
+DATABASE_HOST: This is the hostname or IP address of your database server.
+DATABASE_PORT: This is the port number on which your database server is listening.
+DATABASE_USERNAME: This is the username that your application will use to authenticate with the database.
+DATABASE_PASSWORD: This is the password that your application will use to authenticate with the database.
+DATABASE_DB: This is the name of the database that your application will connect to.
+PORT: This is the port number on which your application will run. In this case, it’s set to 3000.
+
+```
+
 
 ## Running the app
 
@@ -53,21 +73,21 @@ This API provides functionalities for managing a digital library, allowing CRUD 
 
 ## Usage
 ### Available Endpoints
-- `GET /books`: Get all available books.
-- `GET /books/:id`: Get a specific book by its ID.
-- `POST /books`: Create a new book.
-- `PUT /books/:id`: Update an existing book.
-- `DELETE /books/:id`: Delete a book by its ID.
-- `GET /authors`: Get all available authors.
-- `GET /authors/:id`: Get a specific author by its ID.
-- `POST /authors`: Create a new author.
-- `PUT /authors/:id`: Update an existing author.
-- `DELETE /authors/:id`: Delete an author by its ID.
-- `GET /sales`: Get all available sales.
-- `GET /sales/:id`: Get a specific sale by its ID.
-- `POST /sales`: Register a new sale.
-- `PUT /sales/:id`: Update an existing sale.
-- `DELETE /sales/:id`: Delete a sale by its ID.
+- `GET /api/books/all`: Get all available books.
+- `GET /api/books/:id`: Get a specific book by its ID.
+- `POST /api/books/new`: Create a new book.
+- `PUT /api/books/:id`: Update an existing book.
+- `DELETE /api/books/:id`: Delete a book by its ID.
+- `GET /api/authors/all`: Get all available authors.
+- `GET /api/authors/:id`: Get a specific author by its ID.
+- `POST /api/authors/new`: Create a new author.
+- `PUT /api/authors/:id`: Update an existing author.
+- `DELETE /api/authors/:id`: Delete an author by its ID.
+- `GET /api/sales/all`: Get all available sales.
+- `GET /api/sales/:id`: Get a specific sale by its ID.
+- `POST /api/sales/new`: Register a new sale.
+- `PUT /api/sales/:id`: Update an existing sale.
+- `DELETE /api/sales/:id`: Delete a sale by its ID.
 
 ### API Documentation
 The API documentation is available in Swagger. After running the application, visit `http://localhost:3000/api/docs` in your browser to access the documentation.
@@ -76,36 +96,39 @@ The API documentation is available in Swagger. After running the application, vi
 ```
 src/
 |-- author/
-|   |-- dto/                  # DTOs (Data Transfer Objects) for author operations
+|   |--config.ts              # Configuration file for database and other settings
+|   |--Guard/                 # guard configuration for sales
+|
+|-- author/
 |   |-- entities/             # Author entity definition
-|   |-- author.controller.ts  # Controller for author operations
-|   |-- author.module.ts      # Module for author-related functionalities
-|   |-- author.service.ts     # Service for author operations
+|   |-- dto/                  # DTOs (Data Transfer Objects) for author operations
+|   |-- controller/           # Controller for author operations
+|   |-- module/               # Module for author-related functionalities
+|   |--  service              # Service for author operations
 |
 |-- book/
 |   |-- dto/                  # DTOs for book operations
 |   |-- entities/             # Book entity definition
-|   |-- book.controller.ts    # Controller for book operations
-|   |-- book.module.ts        # Module for book-related functionalities
-|   |-- book.service.ts       # Service for book operations
+|   |-- controller/           # Controller for book operations
+|   |-- module/               # Module for book-related functionalities
+|   |-- service               # Service for book operations
 |
 |-- sales/
 |   |-- dto/                  # DTOs for sales operations
 |   |-- entities/             # Sale entity definition
-|   |-- sale.controller.ts    # Controller for sales operations
-|   |-- sale.module.ts        # Module for sale-related functionalities
-|   |-- sale.service.ts       # Service for sale operations
+|   |-- controller/           # Controller for sales operations
+|   |-- module/               # Module for sale-related functionalities
+|   |--  service              # Service for sale operations
 |
 |-- app.module.ts             # Main application module
 |-- main.ts                   # Application entry point
-|-- config.ts                 # Configuration file for database and other settings
 |-- ...                       # Other files and folders
 ```
 
 ## Contribution
 To contribute to this project, follow these steps:
 1. Fork this repository.
-2. Create a new branch with the prefix `feature/` followed by your feature name.
+2. Create a new branch with the prefix `feature/`or  `feat/` followed by your feature name.
 3. Make your changes and tests.
 4. Make a pull request to the `develop` branch of this repository.
 
@@ -117,4 +140,4 @@ This project is licensed under the MIT License. See the LICENSE file for more de
 
 ---
 
-For any questions or issues, contact Stiven Loaiza at camilomanco2005@gmail.com Thank you for using our API!
+For any questions or issues, Cristian Manco at camilomanco2005@gmail.com Thank you for using our API!

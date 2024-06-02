@@ -15,7 +15,7 @@ import { SaleModule } from './sales/module/sale.module';
       password: config().database.password,
       database: config().database.db,
       autoLoadEntities: true,
-      synchronize: true,
+      synchronize: true,      
     }),
     AuthorModule,
     BookModule,
