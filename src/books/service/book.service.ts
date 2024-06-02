@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Book } from '../entities/book.entity';
@@ -11,17 +11,36 @@ export class BookService {
   constructor(
     @InjectRepository(Book)
     private readonly bookRepository: Repository<Book>,
+    @InjectRepository(Author)
+    private readonly authorRepository: Repository<Author>,
   ) {}
 
   async create(createBookDto: CreateBookDto): Promise<Book> {
-    const authors = await this.bookRepository.findByIds(
-      createBookDto.autores,
-    );
+    // Verificar que createBookDto.autores no sea undefined y sea un array
+    if (!createBookDto.autores || !Array.isArray(createBookDto.autores) || createBookDto.autores.length === 0) {
+      throw new BadRequestException('No authors provided');
+    }
+
+    // Buscar autores por sus IDs
+    const authors = await this.authorRepository.findByIds(createBookDto.autores);
+
+    // Verificar que se encontraron los autores
+    if (authors.length !== createBookDto.autores.length) {
+      throw new NotFoundException('One or more authors not found');
+    }
+
     const book = this.bookRepository.create({
       ...createBookDto,
       autores: authors,
     });
-    return this.bookRepository.save(book);
+
+    await this.bookRepository.save(book);
+
+    // Devolver el libro creado con autores incluidos
+    return this.bookRepository.findOne({
+      where: { id: book.id },
+      relations: ['autores'],
+    });
   }
 
   async findAll(page: number, limit: number): Promise<Book[]> {
