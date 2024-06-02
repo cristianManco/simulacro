@@ -6,13 +6,13 @@ services:
     container_name: simulacro
     restart: always
     environment:
-      POSTGRES_DB: postgres
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: admin123
+      POSTGRES_DB: b9b7ia7hcr9fx33r1eqq
+      POSTGRES_USER: uvmbe6coewetz58lyrhf
+      POSTGRES_PASSWORD: La7PV7HnVR4YvP0o1A6Pa0IfT2G32F
     volumes:
       - /var/lib/postgresql/data
     ports:
-      - 5432:5432
+      - 50013:5432
   pgadmin:
     image: dpage/pgadmin4
     container_name: pgadmin
