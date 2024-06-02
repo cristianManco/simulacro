@@ -1,4 +1,11 @@
-import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, ManyToOne } from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
+  ManyToOne,
+} from 'typeorm';
 import { Book } from 'src/books/entities/book.entity';
 
 @Entity()
@@ -24,6 +31,6 @@ export class Sale {
   @UpdateDateColumn()
   updatedAt: Date;
 
-  @ManyToOne(() => Book, book => book.ventas)
+  @ManyToOne(() => Book, (book) => book.ventas)
   libro: Book;
 }
